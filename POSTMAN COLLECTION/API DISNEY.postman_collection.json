@@ -65,6 +65,28 @@
 							"port": "3000",
 							"path": [
 								"characters"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "age",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "weight",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "movies[]",
+									"value": null,
+									"disabled": true
+								}
 							]
 						}
 					},
@@ -90,32 +112,38 @@
 								{
 									"key": "name",
 									"value": "",
-									"type": "text"
+									"type": "text",
+									"disabled": true
 								},
 								{
 									"key": "age",
 									"value": "",
-									"type": "text"
+									"type": "text",
+									"disabled": true
 								},
 								{
 									"key": "weight",
 									"value": "",
-									"type": "text"
+									"type": "text",
+									"disabled": true
 								},
 								{
 									"key": "lore",
 									"value": "",
-									"type": "text"
+									"type": "text",
+									"disabled": true
 								},
 								{
 									"key": "logo",
 									"type": "file",
-									"src": []
+									"src": [],
+									"disabled": true
 								},
 								{
 									"key": "movies[]",
 									"value": "",
-									"type": "text"
+									"type": "text",
+									"disabled": true
 								}
 							]
 						},
@@ -272,6 +300,23 @@
 							"port": "3000",
 							"path": [
 								"movies"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "genre",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "title",
+									"value": null,
+									"disabled": true
+								}
 							]
 						}
 					},
