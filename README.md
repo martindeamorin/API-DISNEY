@@ -2,7 +2,7 @@
 
 ## Consideraciones generales:
 
-Para correr la aplicacion es necesario ejecutar el script para crear la base de datos que se encuentra dentro de la carpeta SQL SCRIPT. El script tambien crea tres filas con datos dentro de tabla de genero ya que es la unica que no tiene endpoint, por lo demas no tiene ningun dato. Considerar que quizas tenga que cambiar datos de acceso a la base de datos segun como este configurado su localhost, para hacer eso entrar en /database/config/config.js.
+Para correr la aplicacion es necesario ejecutar el script de MySQL para crear la base de datos que se encuentra dentro de la carpeta SQL SCRIPT. El script tambien crea tres filas con datos dentro de tabla de genero ya que es la unica que no tiene endpoint, por lo demas no tiene ningun dato. Considerar que quizas tenga que cambiar datos de acceso a la base de datos segun como este configurado su localhost, para hacer eso entrar en /database/config/config.js.
 
 Para instalar las dependencias hay que ejecutar por consola en la raiz del proyecto "npm install". Para levantar el servidor ejecutar el comando "npm start". El servidor corre en el puerto 3000.
 
