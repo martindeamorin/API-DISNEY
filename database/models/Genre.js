@@ -13,7 +13,7 @@ module.exports = function(sequelize, dataTypes){
             "allowNull" : false
         },
 
-        nombre : {
+        name : {
             type : dataTypes.STRING(100),
             "allowNull" : false
         },

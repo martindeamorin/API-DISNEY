@@ -1,0 +1,68 @@
+DROP DATABASE IF EXISTS disney;
+
+CREATE DATABASE disney;
+
+USE disney;
+
+DROP TABLE IF EXISTS personaje;
+CREATE TABLE personaje(
+  id INT(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL,
+  age INT(3) NOT NULL,
+  weight INT(3) NOT NULL,
+  lore TEXT NOT NULL,
+  logo VARCHAR(200) NOT NULL,
+  created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+DROP DATABASE IF EXISTS genero;
+CREATE TABLE genero(
+  id INT(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  logo VARCHAR(200) NOT NULL,
+  name VARCHAR(100) NOT NULL,
+  updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+INSERT INTO `disney`.`genero` (`id`, `logo`, `name`) VALUES ('1', 'logo1.jpg', 'Genero 1');
+INSERT INTO `disney`.`genero` (`id`, `logo`, `name`) VALUES ('2', 'logo2.jpg', 'Genero 2');
+INSERT INTO `disney`.`genero` (`id`, `logo`, `name`) VALUES ('3', 'logo3.jpg', 'Genero 3');
+
+
+DROP DATABASE IF EXISTS pelicula;
+CREATE TABLE pelicula(
+  id INT(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  genero_id int(11) UNSIGNED DEFAULT NULL,
+  title VARCHAR(100) NOT NULL,
+  rating INT(1) NOT NULL,
+  logo VARCHAR(200) NOT NULL,
+  created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX(genero_id),
+  CONSTRAINT genero_id FOREIGN KEY(genero_id) REFERENCES genero(id) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+DROP DATABASE IF EXISTS usuario;
+CREATE TABLE usuario(
+  id INT(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  email VARCHAR(100) NOT NULL,
+  password CHAR(60) NOT NULL,
+  token VARCHAR(30) NOT NULL,
+  created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+DROP TABLE IF EXISTS personaje_pelicula;
+CREATE TABLE personaje_pelicula (
+  id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  personaje_id int(11) UNSIGNED NOT NULL,
+  pelicula_id int(11) UNSIGNED NOT NULL,
+  created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX(personaje_id),
+  INDEX(pelicula_id),
+  FOREIGN KEY(personaje_id) REFERENCES personaje(id) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  FOREIGN KEY(pelicula_id) REFERENCES pelicula(id) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
