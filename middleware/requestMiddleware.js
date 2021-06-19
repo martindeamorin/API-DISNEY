@@ -45,6 +45,7 @@ const requestMiddleware = {
                 return res.json(errorResponse);
             }
         }
+        next()
     }
 }
 

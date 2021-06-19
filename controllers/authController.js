@@ -37,7 +37,7 @@ const authController = {
                 
 
                 let response = {
-                    body : {
+                    data : {
                         userInfo : "El usuario se ha creado con exito"
                     },
                     info : {
