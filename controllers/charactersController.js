@@ -62,7 +62,7 @@ const charactersController = {
 
 
                 const response = {
-                    body: {
+                    data: {
                         characters: filteredValues
                     },
                     info: {
@@ -104,7 +104,7 @@ const charactersController = {
             getCharacter.logo = `http://localhost:3000/images/charactersLogos/${getCharacter.logo}`
 
             const response = {
-                body: {
+                data: {
                     characters: getCharacter
                 },
                 info: {
@@ -173,7 +173,7 @@ const charactersController = {
                     const createRelation = await db.CharacterMovie.bulkCreate(relations)
                     if (createRelation) {
                         const response = {
-                            body: {
+                            data: {
                                 message: `Se ha creado con exito el personaje ${name}`
                             },
                             info: {
@@ -196,7 +196,7 @@ const charactersController = {
                     }
                 } else {
                     const response = {
-                        body: {
+                        data: {
                             message: `Se ha creado con exito el personaje ${name}`
                         },
                         info: {
@@ -319,7 +319,7 @@ const charactersController = {
                 }
 
                 const response = {
-                    body: {
+                    data: {
                         message: `Se ha editado con exito el personaje ${name}`
                     },
                     info: {
@@ -408,7 +408,7 @@ const charactersController = {
             fs.unlinkSync(path.normalize(path.resolve(__dirname, `../public/images/charactersLogos/${characterDeleted.logo}`)))
 
             const response = {
-                body: {
+                data: {
                     message: `Se ha eliminado con exito el personaje ${characterDeleted.name}`
                 },
                 info: {

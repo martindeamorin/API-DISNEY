@@ -59,7 +59,7 @@ const  moviesController = {
                 }
 
                 const response = {
-                    body: {
+                    data: {
                         movies: filteredValues
                     },
                     info: {
@@ -104,7 +104,7 @@ const  moviesController = {
             getMovie.logo = `http://localhost:3000/images/moviesLogos/${getMovie.logo}`
 
             const response = {
-                body: {
+                data: {
                     movie: getMovie
                 },
                 info: {
@@ -172,7 +172,7 @@ const  moviesController = {
                     const createRelation = await db.CharacterMovie.bulkCreate(relations)
                     if (createRelation) {
                         const response = {
-                            body: {
+                            data: {
                                 message: `Se ha creado con exito la pelicula ${title}`
                             },
                             info: {
@@ -195,7 +195,7 @@ const  moviesController = {
                     }
                 } else {
                     const response = {
-                        body: {
+                        data: {
                             message: `Se ha creado con exito la pelicula ${title}`
                         },
                         info: {
@@ -317,7 +317,7 @@ const  moviesController = {
                 }
 
                 const response = {
-                    body: {
+                    data: {
                         message: `Se ha editado con exito la pelicula ${title}`
                     },
                     info: {
@@ -406,7 +406,7 @@ const  moviesController = {
             fs.unlinkSync(path.normalize(path.resolve(__dirname, `../public/images/moviesLogos/${movieDeleted.logo}`)))
 
             const response = {
-                body: {
+                data: {
                     message: `Se ha eliminado con exito la pelicula ${movieDeleted.title}`
                 },
                 info: {

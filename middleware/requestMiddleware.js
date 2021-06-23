@@ -7,7 +7,7 @@ const requestMiddleware = {
             if(req.cookies.email && req.cookies.token){
                 if(req.header("Authorization")){
                     if(req.header("Authorization").includes(cryptr.decrypt(req.cookies.token))){
-                        next()
+                        return next()
                     } else {
                         const errorResponse = {
                             data: {
@@ -45,7 +45,7 @@ const requestMiddleware = {
                 return res.json(errorResponse);
             }
         }
-        next()
+        return  next()
     }
 }
 
