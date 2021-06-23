@@ -3,7 +3,7 @@ const cryptr = new Cryptr('ZkiU32');
 
 const requestMiddleware = {
     authCheck : (req, res, next) => {
-        if(!(req.originalUrl === '/auth/login' || req.originalUrl === '/auth/register')){
+        if((req.originalUrl === '/characters' || req.originalUrl === '/movies')){
             if(req.cookies.email && req.cookies.token){
                 if(req.header("Authorization")){
                     if(req.header("Authorization").includes(cryptr.decrypt(req.cookies.token))){
