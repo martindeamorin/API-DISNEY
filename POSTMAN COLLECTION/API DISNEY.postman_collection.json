@@ -422,33 +422,28 @@
 							"formdata": [
 								{
 									"key": "title",
-									"value": "",
-									"type": "text",
-									"disabled": true
+									"value": "Pelicula 1",
+									"type": "text"
 								},
 								{
 									"key": "rating",
-									"value": "",
-									"type": "text",
-									"disabled": true
+									"value": "3",
+									"type": "text"
 								},
 								{
 									"key": "genre",
-									"value": "",
-									"type": "text",
-									"disabled": true
+									"value": "1",
+									"type": "text"
 								},
 								{
 									"key": "character[]",
-									"value": "",
-									"type": "text",
-									"disabled": true
+									"value": "1",
+									"type": "text"
 								},
 								{
 									"key": "logo",
 									"type": "file",
-									"src": [],
-									"disabled": true
+									"src": "/D:/Documentos/PROGRAMACION/API-DISENEY/public/images/moviesLogos/pelicula-mickey.jpg"
 								}
 							]
 						},
