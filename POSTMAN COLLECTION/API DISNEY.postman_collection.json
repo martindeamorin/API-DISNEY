@@ -111,33 +111,28 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "",
-									"type": "text",
-									"disabled": true
+									"value": "Mickey Mouse",
+									"type": "text"
 								},
 								{
 									"key": "age",
-									"value": "",
-									"type": "text",
-									"disabled": true
+									"value": "91",
+									"type": "text"
 								},
 								{
 									"key": "weight",
-									"value": "",
-									"type": "text",
-									"disabled": true
+									"value": "67",
+									"type": "text"
 								},
 								{
 									"key": "lore",
-									"value": "",
-									"type": "text",
-									"disabled": true
+									"value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac magna eu mi faucibus lacinia. Integer non porta ante. Duis rhoncus laoreet porta. Suspendisse sed massa dictum, lacinia metus a, finibus nunc. Mauris volutpat egestas lectus, convallis tincidunt metus tincidunt in. Donec sed enim non odio viverra blandit nec ut.\n\n",
+									"type": "text"
 								},
 								{
 									"key": "logo",
 									"type": "file",
-									"src": [],
-									"disabled": true
+									"src": "/D:/Documentos/PROGRAMACION/API-DISENEY/public/images/charactersLogos/mickey-mouse.png"
 								},
 								{
 									"key": "movies[]",
@@ -171,27 +166,23 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "",
-									"type": "text",
-									"disabled": true
+									"value": "Mickey Mouse",
+									"type": "text"
 								},
 								{
 									"key": "age",
-									"value": "",
-									"type": "text",
-									"disabled": true
+									"value": "91",
+									"type": "text"
 								},
 								{
 									"key": "weight",
-									"value": "",
-									"type": "text",
-									"disabled": true
+									"value": "67",
+									"type": "text"
 								},
 								{
 									"key": "lore",
-									"value": "",
-									"type": "text",
-									"disabled": true
+									"value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac magna eu mi faucibus lacinia. Integer non porta ante. Duis rhoncus laoreet porta. Suspendisse sed massa dictum, lacinia metus a, finibus nunc. Mauris volutpat egestas lectus, convallis tincidunt metus tincidunt in. Donec sed enim non odio viverra blandit nec ut.\n",
+									"type": "text"
 								},
 								{
 									"key": "movies[]",
@@ -372,27 +363,27 @@
 							"formdata": [
 								{
 									"key": "title",
-									"value": "",
+									"value": "Pelicula 1",
 									"type": "text"
 								},
 								{
 									"key": "genre",
-									"value": "",
+									"value": "1",
 									"type": "text"
 								},
 								{
 									"key": "logo ",
 									"type": "file",
-									"src": []
+									"src": "/D:/Documentos/PROGRAMACION/API-DISENEY/public/images/moviesLogos/pelicula-mickey.jpg"
 								},
 								{
 									"key": "rating",
-									"value": "",
+									"value": "3",
 									"type": "text"
 								},
 								{
 									"key": "characters[]",
-									"value": "",
+									"value": "1",
 									"type": "text"
 								}
 							]
@@ -628,6 +619,12 @@
 					"response": []
 				}
 			]
+		}
+	],
+	"variable": [
+		{
+			"key": "auth",
+			"value": "0Fjtn6owqAfG8WCWsHLglg3C3t0mEo"
 		}
 	]
 }

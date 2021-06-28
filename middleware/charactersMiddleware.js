@@ -6,17 +6,23 @@ const {Op} = require("sequelize")
 const charactersMiddleware = {
     characterValidation : [
         body("name").notEmpty().withMessage("El campo es requerido"),
-        body("name").custom( async (value) => {
-            const findCharacter =  await db.Character.findOne(
-                {
-                    where : 
+        body("name").custom( async (value, {req}) => {
+            if(value){
+                const findCharacter =  await db.Character.findOne(
                     {
-                        name : value
+                        where : 
+                        {
+                            name : value
+                        }
+                    }
+                )
+                if(findCharacter){
+                    if(!(req.method === "PUT")){
+                        return Promise.reject("Este personaje ya existe")
+                    } else{
+                        return true
                     }
                 }
-            )
-            if(findCharacter){
-                return Promise.reject("Este personaje ya existe")
             }
         }),
         body("age").notEmpty().isNumeric().withMessage("El campo es requerido y debe ser numérico"),

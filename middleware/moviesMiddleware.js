@@ -1,22 +1,24 @@
 const db = require("../database/models/index");
 const {body, query} = require("express-validator");
 const path = require("path");
-const {Op} = require("sequelize")
+const {Op} = require("sequelize");
 
 const moviesMiddleware = {
     movieValidation : [
         body("title").notEmpty().withMessage("El campo es requerido"),
         body("title").custom( async (value) => {
-            const findMovie =  await db.Movie.findOne(
-                {
-                    where : 
+            if(value){
+                const findMovie =  await db.Movie.findOne(
                     {
-                        title : value
+                        where : 
+                        {
+                            title : value
+                        }
                     }
+                )
+                if(findMovie){
+                    return Promise.reject("Esta pelicula ya existe")
                 }
-            )
-            if(findMovie){
-                return Promise.reject("Esta pelicula ya existe")
             }
         }),
         body("genre", "Este campo es opcional, numerico y no puede quedar vacio").optional().notEmpty().isNumeric().custom( async (value) => {
