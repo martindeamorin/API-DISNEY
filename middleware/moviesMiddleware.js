@@ -6,7 +6,7 @@ const {Op} = require("sequelize");
 const moviesMiddleware = {
     movieValidation : [
         body("title").notEmpty().withMessage("El campo es requerido"),
-        body("title").custom( async (value) => {
+        body("title").custom( async (value, {req}) => {
             if(value){
                 const findMovie =  await db.Movie.findOne(
                     {
