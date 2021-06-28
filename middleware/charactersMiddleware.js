@@ -28,7 +28,7 @@ const charactersMiddleware = {
         body("age").notEmpty().isNumeric().withMessage("El campo es requerido y debe ser numérico"),
         body("weight").notEmpty().isNumeric().withMessage("El campo es requerido y debe ser numérico"),
         body("lore").notEmpty().withMessage("El campo es requerido"),
-        body("logo", "El producto debe tener una imagen (JPG, JPEG o PNG)").custom((value, {req}) => {
+        body("logo", "El personaje debe tener una imagen (JPG, JPEG o PNG)").custom((value, {req}) => {
             if(req.files[0]){
                 const extension = (path.extname(req.files[0].originalname)).toLowerCase();
                 switch (extension) {

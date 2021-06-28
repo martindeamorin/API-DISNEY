@@ -17,7 +17,11 @@ const moviesMiddleware = {
                     }
                 )
                 if(findMovie){
-                    return Promise.reject("Esta pelicula ya existe")
+                    if(!(req.method === "PUT")){
+                        return Promise.reject("Esta pelicula ya existe")
+                    } else{
+                        return true
+                    }
                 }
             }
         }),
