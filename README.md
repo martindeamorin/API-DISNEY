@@ -13,7 +13,7 @@ En la coleccion de POSTMAN se encuentran listados todos los endpoint posibles de
 Todas las respuestas estan estructuradas de la siguiente manera:
 
 
-Un objeto JSON con dos propiedades: body e info. Dentro de body se devuelve la información que el usuario pide a la API, o un mensaje (o array de mensajes) de error si falla   el pedido. Dentro de info se puede encontrar informacion complementaria al pedido, como puede ser status, tamaño de la informacion devuelta o endpoints.
+Un objeto JSON con dos propiedades: data e info. Dentro de body se devuelve la información que el usuario pide a la API, o un mensaje (o array de mensajes) de error si falla   el pedido. Dentro de info se puede encontrar informacion complementaria al pedido, como puede ser status, tamaño de la informacion devuelta o endpoints.
 
 
 ## **AUTH:**
@@ -24,13 +24,13 @@ Antes de realizar cualquier llamado a la API es necesario registrarse y luego lo
 
 Recibe parametros por BODY (x-www-form-urlencoded), no por PARAMS ni QUERY. Los parametros son: email y contraseña (OBLIGATORIOS). La contraseña debe tener minimo ocho caracteres, una mayúscula y una minúscula.
 
-En caso de éxito, retorna dentro de BODY un mensaje avisando que se creo exitosamente el usuario. Dentro de INFO devolvemos el status del request.
+En caso de éxito, retorna dentro de DATA un mensaje avisando que se creo exitosamente el usuario. Dentro de INFO devolvemos el status del request.
   
 ### **LOGIN - http://localhost:3000/auth/login (POST)**
 
 Recibe parametros por BODY (x-www-form-urlencoded), no por PARAMS ni QUERY. Los parametros son: email y contraseña (OBLIGATORIOS).
 
-En caso de éxito, retorna dentro de BODY un objeto que contiene el email y el token del usuario. Dentro de INFO devolvemos el status del request.
+En caso de éxito, retorna dentro de DATA un objeto que contiene el email y el token del usuario. Dentro de INFO devolvemos el status del request.
 
 ## **CHARACTER**:
 
@@ -38,7 +38,7 @@ En caso de éxito, retorna dentro de BODY un objeto que contiene el email y el t
 
 No recibe parametros ni por BODY ni por QUERY. Recibe un parametro obligatoria que es el ID.
 
-En caso de éxito, dentro de BODY retorna toda la informacion del personaje, dentro de INFO retrona el status.
+En caso de éxito, dentro de DATA retorna toda la informacion del personaje, dentro de INFO retrona el status.
 
 ### **GET CHARACTERS - http://localhost:3000/characters (GET)**
     
@@ -46,13 +46,13 @@ No recibe ningun PARAM ni BODY. Puede recibir QUERYS, todas ellas OPCIONALES. So
 
 Es posible combinar las QUERYS para hacer busquedas mas exactas.
 
-En caso de éxito, dentro de BODY retorna un array de objetos con tantos objetos como coincidencias haya, dentro de estos podemos encontrar el logo y el nombre de cada uno de     los personajes. Dentro de INFO retrona el status y la cantidad de resultados.
+En caso de éxito, dentro de DATA retorna un array de objetos con tantos objetos como coincidencias haya, dentro de estos podemos encontrar el logo y el nombre de cada uno de     los personajes. Dentro de INFO retrona el status y la cantidad de resultados.
 
 ### **CREATE CHARACTER - http://localhost:3000/characters (POST)**
   
 No recibe ningun PARAM ni QUERY. Recibe un BODY a traves de form data. Los datos que es posible pasar son: name, age, weight, lore (OBLIGATORIOS) y logo -JPG, JPEG, PNG-,       movies[] -ARRAY- (OPCIONALES).
 
-En caso de exito retorna dentro de BODY un mensaje diciendo que X personaje fue creado correctamente. Dentro de INFO devuelve el status.
+En caso de exito retorna dentro de DATA un mensaje diciendo que X personaje fue creado correctamente. Dentro de INFO devuelve el status.
 
 ### **EDIT CHARACTER - http://localhost:3000/characters/ID?_method=PUT (PUT)**
   
@@ -62,7 +62,7 @@ Se realiza la suposición de que el front-end va a rellenar los inputs con los d
 
 Por el lado de la imagen, si no se envia una nueva la imagen que queda es la que ya existia, por lo que deja de ser un campo obligatorio. En caso de que se envie una nueva,     se reemplazará.
 
-En caso de exito retorna dentro de BODY un mensaje diciendo que X personaje fue editado correctamente. Dentro de INFO devuelve el status.
+En caso de exito retorna dentro de DATA un mensaje diciendo que X personaje fue editado correctamente. Dentro de INFO devuelve el status.
 
 ### **DELETE CHARACTER - http://localhost:3000/characters/ID?_method=DELETE (DELETE)**
 
@@ -70,7 +70,7 @@ Recibe un QUERY que sirve para sobrescribir el método (usando method override),
 
 El DELETE borra todas las relaciones que ese personaje tenia, para no generar errores, asi como la imagen dentro del folder correspondiente (a traves de file system)
 
-En caso de exito retorna dentro de BODY un mensaje diciendo que X personaje fue eliminado correctamente. Dentro de INFO devuelve el status.
+En caso de exito retorna dentro de DATA un mensaje diciendo que X personaje fue eliminado correctamente. Dentro de INFO devuelve el status.
   
 ## **MOVIES:**
 
@@ -78,7 +78,7 @@ En caso de exito retorna dentro de BODY un mensaje diciendo que X personaje fue 
   
 No recibe parametros ni por BODY ni por QUERY. Recibe un parametro obligatoria que es el ID.
 
-En caso de éxito, dentro de BODY retorna toda la informacion de la pelicula, dentro de INFO retrona el status.
+En caso de éxito, dentro de DATA retorna toda la informacion de la pelicula, dentro de INFO retrona el status.
 
 ### **GET MOVIES - http://localhost:3000/movies (GET)**
   
@@ -86,13 +86,13 @@ No recibe ningun PARAM ni BODY. Puede recibir QUERYS, todas ellas OPCIONALES. So
 
 Es posible combinar las QUERYS para hacer busquedas mas exactas.
 
-En caso de éxito, dentro de BODY retorna un array de objetos con tantos objetos como coincidencias haya, dentro de estos podemos encontrar el logo y el título de cada una de     las peliculas. Dentro de INFO retrona el status y la cantidad de resultados.
+En caso de éxito, dentro de DATA retorna un array de objetos con tantos objetos como coincidencias haya, dentro de estos podemos encontrar el logo y el título de cada una de     las peliculas. Dentro de INFO retrona el status y la cantidad de resultados.
 
 ### **CREATE MOVIE - http://localhost:3000/movies (POST)**
   
 No recibe ningun PARAM ni QUERY. Recibe un BODY a traves de form data. Los datos que es posible pasar son: title, rating -0 a 10, FLOAT-, logo -JPG, JPEG, PNG-                   (OBLIGATORIOS) y genre, characters[] -ARRAY-  (OPCIONALES).
 
-En caso de exito retorna dentro de BODY un mensaje diciendo que X pelicula fue creada correctamente. Dentro de INFO devuelve el status.
+En caso de exito retorna dentro de DATA un mensaje diciendo que X pelicula fue creada correctamente. Dentro de INFO devuelve el status.
 
 ### **EDIT MOVIE - http://localhost:3000/movies/ID?_method=PUT (PUT)**
   
@@ -102,7 +102,7 @@ Se realiza la suposición de que el front-end va a rellenar los inputs con los d
 
 Por el lado de la imagen, si no se envia una nueva la imagen que queda es la que ya existia, por lo que deja de ser un campo obligatorio. En caso de que se envie una nueva,     se reemplazará.
 
-En caso de exito retorna dentro de BODY un mensaje diciendo que X pelicula fue editada correctamente. Dentro de INFO devuelve el status.
+En caso de exito retorna dentro de DATA un mensaje diciendo que X pelicula fue editada correctamente. Dentro de INFO devuelve el status.
 
 ### **DELETE MOVIE - http://localhost:3000/movies/ID?_method=DELETE (DELETE)**
   
@@ -110,7 +110,7 @@ Recibe un QUERY que sirve para sobrescribir el método (usando method override),
 
 El DELETE borra todas las relaciones que esa pelicula tenia, para no generar errores, asi como la imagen dentro del folder correspondiente (a traves de file system)
 
-En caso de exito retorna dentro de BODY un mensaje diciendo que X pelicula fue eliminada correctamente. Dentro de INFO devuelve el status.
+En caso de exito retorna dentro de DATA un mensaje diciendo que X pelicula fue eliminada correctamente. Dentro de INFO devuelve el status.
 
 
   
